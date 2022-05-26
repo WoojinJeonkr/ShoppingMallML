@@ -1,10 +1,18 @@
 # import library
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from ML.models import Tag
-from ai.tag_predict import load_pkl
+from ai.tag_pred.tag_predict import load_pkl
 
 def index(req):
     return render(req, 'tag/index.html')
+
+def chart2(req):
+    data = [0.6297657326596233,0.816260909508498,0.6196600826825908,
+            0.8171796049609554,0.6669728984841525]
+    context = {
+        'data' : data
+    }
+    return render(req, 'chart/chart2.html', context)
 
 def input(req):
     return render(req, 'tag/input.html')

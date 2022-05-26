@@ -8,7 +8,7 @@ from sklearn.tree import DecisionTreeClassifier
 import joblib
 
 def load_pkl(input_data):
-    pred_module = joblib.load('ai/tag_predict.pkl')
+    pred_module = joblib.load('ai/tag_pred/tag_predict.pkl')
     result = pred_module.predict_proba([input_data])
     if result[0][0] == 1:
         tag = '생활/사무용품'
