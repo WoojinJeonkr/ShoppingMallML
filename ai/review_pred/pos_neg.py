@@ -1,3 +1,4 @@
+# 라이브러리 추가
 import warnings
 warnings.filterwarnings(action='ignore')
 import re
@@ -9,6 +10,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 import joblib
 
+# 모듈 불러오기
 pos_dict = joblib.load('ai/review_pred/pos_dict.pkl')
 neg_dict = joblib.load('ai/review_pred/neg_dict.pkl')
 plus_label = joblib.load('ai/review_pred/plus_label.pkl')
