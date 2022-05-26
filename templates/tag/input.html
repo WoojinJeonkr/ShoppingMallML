@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>정보 입력</title>
+    <style>
+        * {
+            text-align: center;
+        }
+        body {
+            background: lightcyan;
+        }
+        td {
+            text-align: center;
+        }
+        table {
+            text-align: center;
+            background: snow;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .c1 {
+            background: aliceblue;
+            width: 150px;
+        }
+        button {
+            background: aliceblue;
+            margin: 3px;
+        }
+        f2{
+            text-align: left;
+            margin-left: 300px;
+        }
+    </style>
+</head>
+<body>
+<h3>정보 입력</h3>
+<a href="/">예측 시작 페이지로</a>
+<p></p>
+<form action="/tag/input2" method="post">
+    {% csrf_token %}
+    <table border="1">
+        <tr>
+            <td bgcolor="lightcyan"></td>
+            <td width="100">입력</td>
+        </tr>
+        <tr>
+            <td class="c1">평일/휴일</td>
+            <td width="100">
+                <input type="text" name="week1">
+            </td>
+        </tr>
+        <tr>
+            <td class="c1">요일</td>
+            <td width="100">
+                <input type="text" name="week2">
+            </td>
+        </tr>
+        <tr>
+            <td class="c1">시간대</td>
+            <td width="100">
+                <input type="text" name="hour">
+            </td>
+        </tr>
+        <tr>
+            <td class="c1">성별</td>
+            <td width="100">
+                <input type="text" name="gender">
+            </td>
+        </tr>
+        <tr>
+            <td class="c1">연령대</td>
+            <td width="100">
+                <input type="text" name="age">
+            </td>
+        </tr>
+        <tr>
+            <td class="c1">건수합계</td>
+            <td width="100">
+                <input type="text" name="size">
+            </td>
+        </tr>
+        <tr>
+            <td class="c1">태그 클릭량</td>
+            <td width="100">
+                <input type="text" name="tag_click">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button>정보 저장</button>
+            </td>
+        </tr>
+    </table>
+</form>
+<h3>정보 작성 예시</h3>
+<table border="1">
+    <tr>
+        <td class="c1">평일/휴일</td>
+        <td>0(평일), 1(휴일)</td>
+    </tr>
+    <tr>
+        <td class="c1">요일</td>
+        <td>3(월요일), 6(화요일), 2(수요일), 1(목요일), 0(금요일), 5(토요일), 4(일요일)</td>
+    </tr>
+    <tr>
+        <td class="c1">시간대</td>
+        <td>0(02-06시), 1(07-10시), 2(11-14시), 3(15-18시), 4(19-22시), 5(23-02시)</td>
+    </tr>
+    <tr>
+        <td class="c1">성별</td>
+        <td>0(여성), 1(남성)</td>
+    </tr>
+    <tr>
+        <td class="c1">연령대</td>
+        <td>0(2O대), 1(3O대), 2(40대), 3(50대), 4(60대 이상)</td>
+    </tr>
+    <tr>
+        <td class="c1">건수합계</td>
+        <td>건수합계를 입력해주세요</td>
+    </tr>
+    <tr>
+        <td class="c1">태그 클릭량</td>
+        <td>태그 클릭량을 입력해주세요</td>
+    </tr>
+</table>
+</body>
+</html>

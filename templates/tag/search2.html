@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="utf-8">
+<head>
+    <meta charset="UTF-8">
+    <title>정보 조회 결과</title>
+    <style>
+        *{
+            text-align: center;
+        }
+        body{
+            background: cadetblue;
+        }
+        td{
+            text-align: center;
+        }
+        table{
+            background: snow;
+            margin-left:auto;
+            margin-right:auto;
+        }
+        .c1{
+            background: aliceblue;
+            width: 250px;
+        }
+    </style>
+</head>
+<body bgcolor=#e9967a>
+<h3>정보 조회 결과</h3>
+<table border="1">
+    <tr>
+        <td class="c1">아이디</td>
+        <td width="200">
+            {{ one.id }}
+        </td>
+    </tr>
+    <tr>
+        <td class="c1">평일/휴일</td>
+        <td width="200">
+            {{ one.week1 }}
+        </td>
+    </tr>
+    <tr>
+        <td class="c1">요일</td>
+        <td width="200">
+            {{ one.week2 }}
+        </td>
+    </tr>
+    <tr>
+        <td class="c1">시간대</td>
+        <td width="200">
+            {{ one.hour }}
+        </td>
+    </tr>
+    <tr>
+        <td class="c1">성별</td>
+        <td width="200">
+            {{ one.gender }}
+        </td>
+    </tr>
+    <tr>
+        <td class="c1">연령대</td>
+        <td width="200">
+            {{ one.age }}
+        </td>
+    </tr>
+    <tr>
+        <td class="c1">건수합계</td>
+        <td width="200">
+            {{ one.size }}
+        </td>
+    </tr>
+    <tr>
+        <td class="c1">태그 클릭량</td>
+        <td width="200">
+            {{ one.tag_click }}
+        </td>
+    </tr>
+    <tr>
+        <td class="c1">태그 예측</td>
+        <td colspan="2">
+            <a href="/tag/output/{{ one.id }}">
+                <button>태그 예측 페이지로</button>
+            </a>
+        </td>
+    </tr>
+    <tr>
+        <td class="c1">시작 페이지</td>
+        <td colspan="2">
+            <a href="/">
+                <button>시작 페이지로</button>
+            </a>
+        </td>
+    </tr>
+</table>
+<h3>정보 설명</h3>
+<table border="1">
+    <tr>
+        <td class="c1">평일/휴일</td>
+        <td>0(평일), 1(휴일)</td>
+    </tr>
+    <tr>
+        <td class="c1">요일</td>
+        <td>3(월요일), 6(화요일), 2(수요일), 1(목요일), 0(금요일), 5(토요일), 4(일요일)</td>
+    </tr>
+    <tr>
+        <td class="c1">시간대</td>
+        <td>0(02-06시), 1(07-10시), 2(11-14시), 3(15-18시), 4(19-22시), 5(23-02시)</td>
+    </tr>
+    <tr>
+        <td class="c1">성별</td>
+        <td>0(여성), 1(남성)</td>
+    </tr>
+    <tr>
+        <td class="c1">연령대</td>
+        <td>0(2O대), 1(3O대), 2(40대), 3(50대), 4(60대 이상)</td>
+    </tr>
+    <tr>
+        <td class="c1">건수합계</td>
+        <td>건수합계</td>
+    </tr>
+    <tr>
+        <td class="c1">태그 클릭량</td>
+        <td>태그 클릭량</td>
+    </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>예측 결과</title>
+</head>
+<style>
+    {% comment %}창 크기에 상관없이 배경 이미지 크기 고정{% endcomment %}
+    body {
+        width: 100%;
+        background-image: url("https://cdn.pixabay.com/photo/2016/02/22/12/27/note-pad-1215426__340.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        -webkit-background-size:cover;
+        -moz-background-size:cover;
+    	-o-background-size:cover;
+        background-size:cover;
+    }
+    p {
+        align-content : center;
+        margin-left: -150px;
+        font: bold xx-large serif;
+
+    }
+</style>
+<body>
+<p align="center" style="margin-top: 500px;">예측 카테고리는 {{ tag }}입니다.</p>
+</body>
+</html>
