@@ -27,7 +27,7 @@ urlpatterns = [
     path('tag/search', ML.views.search),
     path('tag/search2', ML.views.search2),
     path('tag/output/<id>', ML.views.output),
-    path('review/', ML.views.readall),
+    path('review/', ML.views.read_all),
     path('review/pn_review', ML.views.pn_review),
     path('chart/', ML.views.index2),
     path('chart/chart2', ML.views.chart2)

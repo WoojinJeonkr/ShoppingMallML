@@ -66,7 +66,7 @@ def pn_review(req):
     print(result)
     return redirect('/review/')
 
-def readall(req):
+def read_all(req):
     review_all = readAll()[0]
     total_count = readAll()[1]
     context = {'review_all':review_all,
