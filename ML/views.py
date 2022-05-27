@@ -15,7 +15,7 @@ def index1(req):
     return render(req, 'tag/index.html')
 
 def index2(req):
-    return render(req, 'label/index2.html')
+    return render(req, 'review/index2.html')
 
 def index3(req):
     return render(req, 'chart/index3.html')
