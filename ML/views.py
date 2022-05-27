@@ -15,10 +15,10 @@ def index1(req):
     return render(req, 'tag/index.html')
 
 def index2(req):
-    return render(req, 'tag/index2.html')
+    return render(req, 'label/index2.html')
 
 def index3(req):
-    return render(req, 'tag/index3.html')
+    return render(req, 'chart/index3.html')
 
 def chart2(req):
     data = [0.6297657326596233,0.816260909508498,0.6196600826825908,
