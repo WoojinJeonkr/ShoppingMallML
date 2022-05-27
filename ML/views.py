@@ -1,13 +1,15 @@
 # import library
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from ML.models import Tag
+from ai.review_pred.readall import readAll
 from ai.tag_pred.tag_predict import load_pkl
+from ai.review_pred import updatedb, pos_neg, readall
 
 def start(req):
     return HttpResponse('<center><h3>시작페이지</h3><hr color=red>' +
                         '<a href=/tag/>태그 예측 사이트</a><br>' +
-                        '<a href=/label/>긍정/부정 판단 사이트</a><br>'+
+                        '<a href=/review/>긍정/부정 판단 사이트</a><br>'+
                         '<a href=/chart/>차트 확인 사이트</a></center>'
                         )
 
@@ -15,10 +17,7 @@ def index1(req):
     return render(req, 'tag/index.html')
 
 def index2(req):
-    return render(req, 'review/index2.html')
-
-def index3(req):
-    return render(req, 'chart/index3.html')
+    return render(req, 'chart/index2.html')
 
 def chart2(req):
     data = [0.6297657326596233,0.816260909508498,0.6196600826825908,
@@ -59,3 +58,19 @@ def output(req, id):
     tag_pred = load_pkl(input_data)
     result = {'tag': tag_pred}
     return render(req, 'tag/result.html', context=result)
+
+def pn_review(req):
+    data = req.POST
+    review_idx = data['id']
+    result = updatedb.update_db(review_idx)
+    print(result)
+    return redirect('/review/')
+
+def readall(req):
+    review_all = readAll()[0]
+    total_count = readAll()[1]
+    context = {'review_all':review_all,
+               'total_count':total_count
+               }
+    print(review_all)
+    return render(req, 'review/review_all.html', context)

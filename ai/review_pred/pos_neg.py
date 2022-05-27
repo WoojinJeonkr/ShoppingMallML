@@ -33,10 +33,7 @@ def labeling(i):
     predict = SA_module.predict(pn_tfidf)
     if(predict[0] == 1):
         p_row[7] = '1F60A'
-        row = tuple(p_row)
+        return p_row[7]
     else:
         p_row[7] = '1F621'
-        row = tuple(p_row)
-    print(row)
-
-labeling(1)
+        return p_row[7]
