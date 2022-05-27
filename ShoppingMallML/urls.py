@@ -20,11 +20,14 @@ import ML.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', ML.views.index),
+    path('', ML.views.start),
+    path('tag/', ML.views.index1),
     path('tag/input', ML.views.input),
     path('tag/input2', ML.views.input2),
     path('tag/search', ML.views.search),
     path('tag/search2', ML.views.search2),
     path('tag/output/<id>', ML.views.output),
+    path('label/', ML.views.index2),
+    path('chart/', ML.views.index3),
     path('chart/chart2', ML.views.chart2)
 ]

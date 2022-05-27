@@ -1,10 +1,24 @@
 # import library
+from django.http import HttpResponse
 from django.shortcuts import render
 from ML.models import Tag
 from ai.tag_pred.tag_predict import load_pkl
 
-def index(req):
+def start(req):
+    return HttpResponse('<center><h3>시작페이지</h3><hr color=red>' +
+                        '<a href=/tag/>태그 예측 사이트</a><br>' +
+                        '<a href=/label/>긍정/부정 판단 사이트</a><br>'+
+                        '<a href=/chart/>차트 확인 사이트</a></center>'
+                        )
+
+def index1(req):
     return render(req, 'tag/index.html')
+
+def index2(req):
+    return render(req, 'tag/index2.html')
+
+def index3(req):
+    return render(req, 'tag/index3.html')
 
 def chart2(req):
     data = [0.6297657326596233,0.816260909508498,0.6196600826825908,
