@@ -3,13 +3,16 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from ML.models import Tag
 from ai.review_pred.readall import readAll
+from ai.review_pred.wordcloudneg import wordcloud_neg
+from ai.review_pred.wordcloudpos import wordcloud_pos
 from ai.tag_pred.tag_predict import load_pkl
 from ai.review_pred import updatedb, pos_neg, readall
 
 def start(req):
     return HttpResponse('<center><h3>시작페이지</h3><hr color=red>' +
                         '<a href=/tag/>태그 예측 사이트</a><br>' +
-                        '<a href=/review/>긍정/부정 판단 사이트</a><br>'+
+                        '<a href=/review/>긍정/부정 판단 사이트</a><br>' +
+                        '<a href=/review/wordcloud_pn>워드클라우드 확인</a><br>' +
                         '<a href=/chart/>차트 확인 사이트</a></center>'
                         )
 
@@ -69,8 +72,14 @@ def pn_review(req):
 def read_all(req):
     review_all = readAll()[0]
     total_count = readAll()[1]
-    context = {'review_all':review_all,
-               'total_count':total_count
-               }
-    print(review_all)
+    context = {
+        'review_all':review_all,
+        'total_count':total_count
+    }
+    # print(review_all)
     return render(req, 'review/review_all.html', context)
+
+def pn_wordcloud(req):
+    wordcloud_pos()
+    wordcloud_neg()
+    return render(req, 'review/wordcloud_pn.html')
