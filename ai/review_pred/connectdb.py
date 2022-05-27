@@ -29,3 +29,5 @@ def db_read(review_idx):
     except Exception as e:
         print("db 연결 중 에러 발생!!")
         print('에러 정보>> ', e)
+
+print(db_read(3))
