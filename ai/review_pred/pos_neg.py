@@ -1,5 +1,8 @@
 # 라이브러리 추가
 import warnings
+
+from ai.review_pred.connectdb import db_read
+
 warnings.filterwarnings(action='ignore')
 import re
 import pandas as pd
@@ -11,24 +14,29 @@ from sklearn.linear_model import LogisticRegression
 import joblib
 
 # 모듈 불러오기
-pos_dict = joblib.load('ai/review_pred/pos_dict.pkl')
-neg_dict = joblib.load('ai/review_pred/neg_dict.pkl')
-plus_label = joblib.load('ai/review_pred/plus_label.pkl')
-tfidf = joblib.load('ai/review_pred/tfidf.pkl')
-SA_lr = joblib.load('ai/review_pred/SA_lr.pkl')
+pos_dict = joblib.load('C:/Users/hi/Documents/ShoppingMallML/ai/review_pred/pos_dict.pkl')
+neg_dict = joblib.load('C:/Users/hi/Documents/ShoppingMallML/ai/review_pred/neg_dict.pkl')
+plus_label = joblib.load('C:/Users/hi/Documents/ShoppingMallML/ai/review_pred/plus_label.pkl')
+tfidf = joblib.load('C:/Users/hi/Documents/ShoppingMallML/ai/review_pred/tfidf.pkl')
+SA_lr = joblib.load('C:/Users/hi/Documents/ShoppingMallML/ai/review_pred/SA_lr.pkl')
 
-def labeling(df, column, i):
+# 하나의 내용에 대한 라벨(긍정/부정에 따른) 붙이는 함수
+def labeling(i):
     tfidf_list = tfidf
     tfidf_module = tfidf_list[0]
     SA_module = SA_lr
-    data = df[column][i]
+    row = db_read(i)
+    p_row = list(row)
+    data = p_row[3]
     data = re.sub("[^ㄱ-ㅎㅏ-ㅣ가-힣 ]", "", data)
     pn_tfidf = tfidf_module.transform([data])
     predict = SA_module.predict(pn_tfidf)
     if(predict[0] == 1):
-        df['review_label'] = df['review_label'].astype(str)
-        df.at[i, 'review_label'] = '1F60A'
+        p_row[7] = '1F60A'
+        row = tuple(p_row)
     else:
-        df['review_label'] = df['review_label'].astype(str)
-        df.at[i, 'review_label'] = '1F621'
-    print(df['review_label'][i])
+        p_row[7] = '1F621'
+        row = tuple(p_row)
+    print(row)
+
+labeling(1)
