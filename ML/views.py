@@ -10,17 +10,6 @@ from ai.review_pred import updatedb, pos_neg, readall
 def index1(req):
     return render(req, 'tag/index.html')
 
-def index2(req):
-    return render(req, 'chart/index2.html')
-
-def chart2(req):
-    data = [0.6297657326596233,0.816260909508498,0.6196600826825908,
-            0.8171796049609554,0.6669728984841525]
-    context = {
-        'data' : data
-    }
-    return render(req, 'chart/chart2.html', context)
-
 def input(req):
     return render(req, 'tag/input.html')
 
@@ -52,6 +41,27 @@ def output(req, id):
     tag_pred = load_pkl(input_data)
     result = {'tag': tag_pred}
     return render(req, 'tag/result.html', context=result)
+
+def index2(req):
+    return render(req, 'chart/index2.html')
+
+#시각화처리
+#월 평균 구매빈도-3회 이상 (%)의 그래프
+def chart1(req):
+    #20대~60대까지의 수치를 data에 담음.
+    data = [47.475000,48.463462,44.905769,39.793303,39.933024]
+    context = {
+        'data' : data
+    }
+    return render(req, 'chart/chart1.html', context)
+
+def chart2(req):
+    data = [0.6297657326596233,0.816260909508498,0.6196600826825908,
+            0.8171796049609554,0.6669728984841525]
+    context = {
+        'data' : data
+    }
+    return render(req, 'chart/chart2.html', context)
 
 def pn_review(req):
     data = req.POST
