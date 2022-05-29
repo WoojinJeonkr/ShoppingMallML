@@ -20,7 +20,6 @@ import ML.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', ML.views.start),
     path('tag/', ML.views.index1),
     path('tag/input', ML.views.input),
     path('tag/input2', ML.views.input2),
