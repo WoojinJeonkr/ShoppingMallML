@@ -30,5 +30,6 @@ urlpatterns = [
     path('review/pn_review', ML.views.pn_review),
     path('review/wordcloud_pn', ML.views.pn_wordcloud),
     path('chart/', ML.views.index2),
+    path('chart/chart1', ML.views.chart1),
     path('chart/chart2', ML.views.chart2)
 ]
