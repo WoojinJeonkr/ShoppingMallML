@@ -4,10 +4,10 @@ import pymysql
 def db_read(review_idx):
     try:
         conn = pymysql.connect(
-            host='amazon rds endpoint addr',
-            port=3306,
+            host='localhost',
+            port=3366,
             user='root',
-            password='database pwd',
+            password='1234',
             db='shop',
             charset='utf8'
         )
