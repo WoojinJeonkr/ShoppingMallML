@@ -4,7 +4,7 @@ from collections import Counter
 import joblib
 
 def wordcloud_pos():
-    pos_dict = joblib.load('/home/ubuntu/projects/shoppingmall/ai/review_pred/pos_dict.pkl')
+    pos_dict = joblib.load('/home/ubuntu/projects/ShoppingMallML/ai/review_pred/pos_dict.pkl')
     words = [n for n in pos_dict if len(n) > 1]
     pos_count = Counter(words)
     wc = WordCloud(font_path='malgun', width=800, height=800,

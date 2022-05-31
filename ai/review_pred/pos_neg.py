@@ -14,11 +14,11 @@ from sklearn.linear_model import LogisticRegression
 import joblib
 
 # 모듈 불러오기
-pos_dict = joblib.load('/home/ubuntu/projects/shoppingmall/ai/review_pred/pos_dict.pkl')
-neg_dict = joblib.load('/home/ubuntu/projects/shoppingmall/ai/review_pred/neg_dict.pkl')
-plus_label = joblib.load('/home/ubuntu/projects/shoppingmall/ai/review_pred/plus_label.pkl')
-tfidf = joblib.load('/home/ubuntu/projects/shoppingmall/ai/review_pred/tfidf.pkl')
-SA_lr = joblib.load('/home/ubuntu/projects/shoppingmall/ai/review_pred/SA_lr.pkl')
+pos_dict = joblib.load('/home/ubuntu/projects/ShoppingMallML/ai/review_pred/pos_dict.pkl')
+neg_dict = joblib.load('/home/ubuntu/projects/ShoppingMallML/ai/review_pred/neg_dict.pkl')
+plus_label = joblib.load('/home/ubuntu/projects/ShoppingMallML/ai/review_pred/plus_label.pkl')
+tfidf = joblib.load('/home/ubuntu/projects/ShoppingMallML/ai/review_pred/tfidf.pkl')
+SA_lr = joblib.load('/home/ubuntu/projects/ShoppingMallML/ai/review_pred/SA_lr.pkl')
 
 # 하나의 내용에 대한 라벨(긍정/부정에 따른) 붙이는 함수
 def labeling(i):

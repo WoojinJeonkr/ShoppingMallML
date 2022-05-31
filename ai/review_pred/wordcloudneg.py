@@ -4,7 +4,7 @@ from collections import Counter
 import joblib
 
 def wordcloud_neg():
-    neg_dict = joblib.load('/home/ubuntu/projects/shoppingmall/ai/review_pred/neg_dict.pkl')
+    neg_dict = joblib.load('/home/ubuntu/projects/ShoppingMallML/ai/review_pred/neg_dict.pkl')
     words = [n for n in neg_dict if len(n) > 1]
     neg_count = Counter(words)
     wc = WordCloud(font_path='malgun', width=800, height=800,
