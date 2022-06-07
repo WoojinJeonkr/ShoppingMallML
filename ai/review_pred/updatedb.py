@@ -7,11 +7,11 @@ def update_db(review_idx):
     print(review_idx)
     try:
         conn = pymysql.connect(
-            host='localhost',
-            port=3366,
+            host='database-1.cgind9azzzrj.ap-northeast-2.rds.amazonaws.com',
+            port=3306,
             user='root',
-            password='1234',
-            db='shop',
+            password='db_password', # blind db_password
+            db='shop2',
             charset='utf8'
         )
 
